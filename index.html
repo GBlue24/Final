@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Smart farm</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form id="signup-form">
+                <h1>Sign Up</h1>
+                <input type="text" placeholder="Admin Code">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <!-- <p id="error_signup" style="color: #ff0060; display: none;" >Invalid Admin Code</p> -->
+                <p id="error-message" style="color: #ff0060; display: none;" ></p>
+                <button onclick="register()" class="signup-btn">Create Account</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="signin-form">
+                <h1>Sign In</h1>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <p id="error_signin" style="color: #ff0060; display: none;">Invalid email or password</p>
+                <button class="signin-btn">Log In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Hello, Friend!</h1>
+                    <p>Please contact the admin to get the code     Phone: 089999999</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="qr">
+        <p>About our product</p>
+        <img src="./img/qr.png" alt="" style="width: 100%;">
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="sign.js"></script>
+</body>
+</html>
