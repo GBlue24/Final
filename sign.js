@@ -2,6 +2,7 @@ const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
 
+
 registerBtn.addEventListener('click', () => {
     container.classList.add("active");
 });
@@ -77,6 +78,7 @@ function register() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("User signed in:", user);
+        localStorage.setItem('isLogin', true);
         window.location.href = "main/index.html";
       })
       .catch((error) => {

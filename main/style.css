@@ -229,6 +229,13 @@ main .sensor{
     /* height: 196px; */
 }
 
+main .microcontroller-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.6rem;
+    /* height: 196px; */
+}
+
 main .sensor > div{
     background-color: var(--color-white);
     padding: var(--card-padding);
@@ -352,7 +359,13 @@ main .nav{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
+.microcontroller-section > div{
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 .device > div:hover{
     box-shadow: none;
 }
@@ -380,6 +393,133 @@ main .nav{
 
 .side1 img{
     width: 125px;
+}
+
+
+
+/*                  check MCU                               */
+.section-title{
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    line-height: 135px;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+.microcontroller-section {
+    border-radius: 20px;
+    position: flex;
+}
+
+.microcontroller-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.microcontroller-card {
+
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.microcontroller-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.microcontroller-card.online {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.microcontroller-card.offline {
+    border-color: #f44336;
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+    50% { box-shadow: 0 0 20px 10px rgba(76, 175, 80, 0.1); }
+}
+
+@keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.4); }
+    50% { box-shadow: 0 0 20px 10px rgba(244, 67, 54, 0.1); }
+}
+
+.microcontroller-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.microcontroller-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.status-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+.status-indicator.online {
+    background: #4CAF50;
+}
+
+.status-indicator.offline {
+    background: #f44336;
+}
+
+
+.test-button {
+    background: green;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.test-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.test-button:active {
+    transform: translateY(0);
+}
+
+.connection-info {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
 }
 
 .furn{

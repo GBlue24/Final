@@ -8,6 +8,12 @@
     <title>Smart farm</title>
 </head>
 <body>
+    <script>
+        let isLogin = JSON.parse(localStorage.getItem('isLogin')) || false;
+        if(isLogin) {
+        window.location.href = "main/index.html";
+        }
+    </script>
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form id="signup-form">
@@ -15,7 +21,6 @@
                 <input type="text" placeholder="Admin Code">
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
-                <!-- <p id="error_signup" style="color: #ff0060; display: none;" >Invalid Admin Code</p> -->
                 <p id="error-message" style="color: #ff0060; display: none;" ></p>
                 <button onclick="register()" class="signup-btn">Create Account</button>
             </form>

@@ -1,3 +1,5 @@
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBgG9M6LrqzQEngs0Xt6A5QDg5LS-UzN2A",
   authDomain: "project1-ee980.firebaseapp.com",
@@ -158,14 +160,14 @@ firebase.database().ref("/Sensor/Bright").on("value", function(snapshot) {
 });
 
 // Deviceeeeeeeeeeeeeeeeee///////////////////
-var bulb = document.getElementById("bulb-btn"); 
-bulb.onclick = function(){  
+var bulb = document.getElementById("bulb-btn");
+bulb.onclick = function(){
       firebase.database().ref("/Device").once("value").then(function(snapshot) {
         var currentStatus = snapshot.child("Bulb").val();
-    
+
         // Chuyển đổi trạng thái
         var newStatus = (currentStatus === "OFF") ? "ON" : "OFF";
-    
+
         // Cập nhật trạng thái mới vào Firebase
         firebase.database().ref("/Device").update({
           "Bulb": newStatus
@@ -186,14 +188,14 @@ firebase.database().ref("/Device/Bulb").on("value", function(snapshot) {
   }
 });
 
-var fan = document.getElementById("fan-btn"); 
-fan.onclick = function(){  
+var fan = document.getElementById("fan-btn");
+fan.onclick = function(){
       firebase.database().ref("/Device").once("value").then(function(snapshot) {
         var currentStatus = snapshot.child("Fan").val();
-    
+
         // Chuyển đổi trạng thái
         var newStatus = (currentStatus === "OFF") ? "ON" : "OFF";
-    
+
         // Cập nhật trạng thái mới vào Firebase
         firebase.database().ref("/Device").update({
           "Fan": newStatus
@@ -217,14 +219,14 @@ firebase.database().ref("/Device/Fan").on("value", function(snapshot) {
   }
 });
 
-var pump = document.getElementById("pump-btn"); 
-pump.onclick = function(){  
+var pump = document.getElementById("pump-btn");
+pump.onclick = function(){
       firebase.database().ref("/Device").once("value").then(function(snapshot) {
         var currentStatus = snapshot.child("Pump").val();
-    
+
         // Chuyển đổi trạng thái
         var newStatus = (currentStatus === "OFF") ? "ON" : "OFF";
-    
+
         // Cập nhật trạng thái mới vào Firebase
         firebase.database().ref("/Device").update({
           "Pump": newStatus
@@ -636,9 +638,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var mode = snapshot.val();
         if (mode === 'Auto') {
           firebase.database().ref("/Sensor").on("value", function(snapshot) {
-              var currentTemp = snapshot.child("Temperature").val(); 
-              var currentHum = snapshot.child("Humidity").val(); 
-              var currentBright = snapshot.child("Bright").val(); 
+              var currentTemp = snapshot.child("Temperature").val();
+              var currentHum = snapshot.child("Humidity").val();
+              var currentBright = snapshot.child("Bright").val();
 
               firebase.database().ref("/Set Value").on("value", function(snapshot) {
               // Điều khiển thiết bị dựa trên giá trị nhiệt độ
@@ -720,3 +722,11 @@ function updateDate() {
 
 // Gọi hàm cập nhật ngày tháng khi trang web được tải
 updateDate();
+
+
+
+//log out
+function LogOut(){
+  localStorage.setItem('isLogin', false);
+  window.location.href = '../index.html';
+}
