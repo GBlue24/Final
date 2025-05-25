@@ -45,10 +45,10 @@
                     <h3>Camera</h3>
                 </a>
                 </a>
-                <span onclick="LogOut()">
+                <a onclick="LogOut()">
                     <span class="material-icons-outlined"> logout</span>
                     <h3>Logout</h3>
-                </span>
+                </a>
             </div>
         </aside>
         <!-- End of sidebar -->
@@ -299,34 +299,39 @@
 
                 <!--                                                    MCU CHECK                                   -->
                 <div class="microcontroller-section">
-                <div class="microcontroller-grid">
-                    <h1 class="section-title" >MCU Status</h1>
-                    <div class="microcontroller-card online" id="esp32-card">
-                        <div class="microcontroller-name">ESP32</div>
-                        <div class="microcontroller-status">
-                            <div class="status-indicator online"></div>
-                            <span>ON</span>
+                    <div class="microcontroller-grid">
+                        <h1 class="section-title" >MCU Status</h1>
+
+                        <div class="microcontroller-card online" id="esp32-card">
+                            <div class="microcontroller-name">Control</div>
+                            <div class="microcontroller-status">
+                                <div class="status-indicator online"></div>
+                                <span id="esp32_status">ON</span>
+                            </div>
+                            <button class="test-button" onclick="testMicrocontroller('esp32')">Check Status</button>
                         </div>
-                        <button class="test-button" onclick="testMicrocontroller('esp32')">Check Status</button>
-                    </div>
-                    <div class="microcontroller-card online" id="esp32-env-card">
-                        <div class="microcontroller-name">ESP32_env</div>
-                        <div class="microcontroller-status">
-                            <div class="status-indicator online"></div>
-                            <span >ON</span>
+
+                        <div class="microcontroller-card online" id="esp32-env-card">
+                            <div class="microcontroller-name">Enviroment Sensor</div>
+                            <div class="microcontroller-status">
+                                <div class="status-indicator online"></div>
+                                <span id="esp32_env_status" >ON</span>
+                            </div>
+                            <button class="test-button" font-weight: bold onclick="testMicrocontroller('esp32_env')">Check Status</button>
                         </div>
-                        <button class="test-button" font-weight: bold onclick="testMicrocontroller('esp32-env')">Check Status</button>
-                    </div>
-                    <div class="microcontroller-card online" id="camera-card">
-                        <div class="microcontroller-name">Camera</div>
-                        <div class="microcontroller-status">
-                            <div class="status-indicator online"></div>
-                            <span >ON</span>
+
+                        <div class="microcontroller-card" id="camera-card">
+                            <div class="microcontroller-name">Camera</div>
+                            <div class="microcontroller-status">
+                                <div class="status-indicator offline"></div>
+                                <span id="camera_status">OFF</span>
+                            </div>
+                            <button class="test-button" onclick="testMicrocontroller('camera')">Check Status</button>
                         </div>
-                        <button class="test-button" onclick="testMicrocontroller('camera')">Check Status</button>
                     </div>
                 </div>
             </section>
+
             <section id="camera" style="display:none">
             <div class="cam-content">
                 <div class="cam-display">

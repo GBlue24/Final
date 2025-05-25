@@ -725,6 +725,50 @@ updateDate();
 
 
 
+function listenToMicrocontrollerStatus(idOnPage, firebaseKey) {
+  // Đường dẫn Firebase (ví dụ: /Check MCU/Camera)
+  firebase.database().ref(`/Check MCU/${firebaseKey}`).on("value", function(snapshot) {
+    const status = snapshot.val(); // 'ON' hoặc 'OFF'
+
+    // Lấy các phần tử HTML tương ứng với ID
+    const card = document.getElementById(`${idOnPage}-card`);
+    const statusText = card.querySelector(".microcontroller-status span");
+    const indicator = card.querySelector(".status-indicator");
+
+    // Cập nhật văn bản hiển thị
+    statusText.textContent = status;
+
+    if (status === 'ON') {
+      // Cập nhật class "online"
+      card.classList.remove("offline");
+      card.classList.add("online");
+
+      indicator.classList.remove("offline");
+      indicator.classList.add("online");
+    } else {
+      // Cập nhật class "offline"
+      card.classList.remove("online");
+      card.classList.add("offline");
+
+      indicator.classList.remove("online");
+      indicator.classList.add("offline");
+    }
+  });
+}
+
+
+
+function testMicrocontroller(deviceKey) {
+  firebase.database().ref(`/Check MCU/${deviceKey}`).set('OFF');
+}
+
+
+
+
+listenToMicrocontrollerStatus("camera", "camera");
+listenToMicrocontrollerStatus("esp32", "esp32");
+listenToMicrocontrollerStatus("esp32-env", "esp32_env");
+
 //log out
 function LogOut(){
   localStorage.setItem('isLogin', false);
