@@ -128,11 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
   colorModeToggle.addEventListener('change', function() {
     updateDisplay();
     var mode = colorModeToggle.checked ? 'Auto' : 'Manual';
-    database.ref('/Mode').set(mode);
+    database.ref('/Mode_test/Mode').set(mode);
 });
 
 // Lấy trạng thái từ Firebase khi trang được tải lại
-database.ref('/Mode').on('value', function(snapshot) {
+database.ref('/Mode_test/Mode').on('value', function(snapshot) {
     var mode = snapshot.val();
     if (mode === 'Auto') {
         colorModeToggle.checked = true;
