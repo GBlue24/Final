@@ -253,13 +253,13 @@ firebase.database().ref("/VoltAmpe/Bulb").on("value", function(snapshot) {
   var bulb_ampe = snapshot.child("Ampe").val();
   document.getElementById("bulb-ampe").innerHTML = bulb_ampe;
 
-  if(bulb_volt >= 200 && bulb_ampe >= 400){
-    document.getElementById("bulb-warn").innerHTML = "Good";
-    document.getElementById("bulb-warn").style.color = "#1b9c85";
-  }
-  else if((bulb_volt > 0 && bulb_volt < 200) || (bulb_ampe > 0 && bulb_ampe < 400)) {
+  if((bulb_ampe < 13)) {
     document.getElementById("bulb-warn").innerHTML = "Off";
     document.getElementById("bulb-warn").style.color = "#7d8da1";
+  }
+  else if((bulb_volt >= 200 && bulb_volt <= 250) && (bulb_ampe >= 225 && bulb_ampe <= 275)){
+    document.getElementById("bulb-warn").innerHTML = "Good";
+    document.getElementById("bulb-warn").style.color = "#1b9c85";
   }
   else {
     document.getElementById("bulb-warn").innerHTML = "Warning";
@@ -273,13 +273,13 @@ firebase.database().ref("/VoltAmpe/Fan").on("value", function(snapshot) {
   var fan_ampe = snapshot.child("Ampe").val();
   document.getElementById("fan-ampe").innerHTML = fan_ampe;
 
-  if(fan_volt >= 200 && fan_ampe >= 400){
-    document.getElementById("fan-warn").innerHTML = "Good";
-    document.getElementById("fan-warn").style.color = "#1b9c85";
-  }
-  else if((fan_volt > 0 && fan_volt < 200) || (fan_ampe > 0 && fan_ampe < 400)) {
+  if(fan_ampe < 11) {
     document.getElementById("fan-warn").innerHTML = "Off";
     document.getElementById("fan-warn").style.color = "#7d8da1";
+  }
+  else if((fan_volt >= 200 && fan_volt <= 250) && (fan_ampe >= 198 && fan_ampe <= 242)){
+    document.getElementById("fan-warn").innerHTML = "Good";
+    document.getElementById("fan-warn").style.color = "#1b9c85";
   }
   else {
     document.getElementById("fan-warn").innerHTML = "Warning";
@@ -293,13 +293,13 @@ firebase.database().ref("/VoltAmpe/Pump").on("value", function(snapshot) {
   var pump_ampe = snapshot.child("Ampe").val();
   document.getElementById("pump-ampe").innerHTML = pump_ampe;
 
-  if(pump_volt >= 200 && pump_ampe >= 400){
-    document.getElementById("pump-warn").innerHTML = "Good";
-    document.getElementById("pump-warn").style.color = "#1b9c85";
-  }
-  else if((pump_volt > 0 && pump_volt < 200) || (pump_ampe > 0 && pump_ampe < 400)) {
+  if((pump_ampe < 200)) {
     document.getElementById("pump-warn").innerHTML = "Off";
     document.getElementById("pump-warn").style.color = "#7d8da1";
+  }
+  else if((pump_volt >= 200 && pump_volt <= 250) && (pump_ampe >= 3600 && pump_ampe <= 4400)){
+    document.getElementById("pump-warn").innerHTML = "Good";
+    document.getElementById("pump-warn").style.color = "#1b9c85";
   }
   else {
     document.getElementById("pump-warn").innerHTML = "Warning";
