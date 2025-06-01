@@ -726,8 +726,8 @@ updateDate();
 
 
 function listenToMicrocontrollerStatus(idOnPage, firebaseKey) {
-  // Đường dẫn Firebase (ví dụ: /Check MCU/Camera)
-  firebase.database().ref(`/Check MCU/${firebaseKey}`).on("value", function(snapshot) {
+  // Đường dẫn Firebase (ví dụ: /CheckMCU/Camera)
+  firebase.database().ref(`/CheckMCU/${firebaseKey}`).on("value", function(snapshot) {
     const status = snapshot.val(); // 'ON' hoặc 'OFF'
 
     // Lấy các phần tử HTML tương ứng với ID
@@ -759,7 +759,7 @@ function listenToMicrocontrollerStatus(idOnPage, firebaseKey) {
 
 
 function testMicrocontroller(deviceKey) {
-  firebase.database().ref(`/Check MCU/${deviceKey}`).set('OFF');
+  firebase.database().ref(`/CheckMCU/${deviceKey}`).set('OFF');
 }
 
 
