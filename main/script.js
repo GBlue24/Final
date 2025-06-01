@@ -336,12 +336,12 @@ const radioButtons = document.querySelectorAll('input[name="button_captime"]');
         if (radio.checked) {
           const captureTime = radio.value;
           // Cập nhật giá trị captureTime lên Firebase
-          database.ref('Capture Time').set(Number(captureTime));
+          database.ref('CaptureTime').set(Number(captureTime));
         }
       });
     });
 
-    database.ref('Capture Time').once('value').then(snapshot => {
+    database.ref('CaptureTime').once('value').then(snapshot => {
       const captureTime = snapshot.val();
       if (captureTime !== null) {
         // Find the radio button with the value from Firebase and set it as checked
@@ -357,7 +357,7 @@ const radioButtons = document.querySelectorAll('input[name="button_captime"]');
 
 // Capture Now////////////////////
 function captureNow() {
-  firebase.database().ref('Capture Now').set(Number("1"));
+  firebase.database().ref('CaptureNow').set(Number("1"));
 }
 
 // Set timeeeee////////////////
