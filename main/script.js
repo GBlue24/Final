@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Kiểm tra các giá trị và điều khiển thiết bị
   function checkAndControlDevices() {
       // Lấy các giá trị từ Firebase
-      database.ref('/Mode').once('value').then(function(snapshot) {
+      database.ref('/Mode_test/Mode').once('value').then(function(snapshot) {
         var mode = snapshot.val();
         if (mode === 'Auto') {
           firebase.database().ref("/Sensor").on("value", function(snapshot) {
